@@ -1,0 +1,164 @@
+.navbar {
+  background-color: transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+}
+
+.navbar-container {
+  max-width: 1200px;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.navbar-brand .logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #333;
+  text-decoration: none;
+}
+
+/* Navigation Links - Vertical Style for Both Desktop and Mobile */
+.nav-links {
+  position: absolute;
+  top: 0%;
+  left: 0;
+  right: 0;
+  background-color: transparent;
+  flex-direction: column;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  display: none; /* Hidden by default */
+}
+
+.nav-links.active {
+  display: flex; /* Show when active */
+}
+
+.nav-links li {
+  width: 100%;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--text-light);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem 0;
+  display: block;
+  transition: color 0.2s ease;
+}
+
+.nav-links a:hover {
+  color: var(--primary-orange);
+}
+
+.mobile-menu-btn {
+  display: block; /* Always visible for both desktop and mobile */
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.hamburger {
+  display: block;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-light);
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.hamburger::before,
+.hamburger::after {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-light);
+  transition: all 0.3s ease;
+}
+
+.hamburger::before {
+  top: -10px;
+}
+
+.hamburger::after {
+  bottom: -8px;
+  
+}
+
+.hamburger.open {
+  background-color: transparent;
+}
+
+.hamburger.open::before {
+  transform: rotate(45deg);
+  top: 0;
+}
+
+.hamburger.open::after {
+  transform: rotate(-45deg);
+  bottom: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .mobile-menu-btn {
+    display: block;
+  }
+
+  .nav-links {
+    display: none; /* Hidden by default on mobile */
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    background-color: var(--text-light);
+    flex-direction: column;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: center;
+  }
+
+  .nav-links.active {
+    display: flex; /* Show when active */
+  }
+
+  .nav-links li {
+    width: 100%;
+  }
+
+  .nav-links a {
+    padding: 0.75rem 0;
+  }
+}
+
+.logo-container {
+  position: relative;
+  z-index: 1001;
+}
+
+.logo-image {
+  height: 50px; /* Default height for mobile */
+  width: auto;
+  transition: var(--transition-default);
+}
+
+/* Desktop styles */
+@media (min-width: 768px) {
+  .logo-image {
+    height: 70px; /* Larger size for desktop */
+  }
+}
+
+/* When menu is open, you might want to adjust logo visibility */
+.logo-image.menu-open {
+  filter: brightness(0) invert(1); /* Makes logo white when menu is open */
+} 
